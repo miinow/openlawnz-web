@@ -1,7 +1,4 @@
 version: 0.2
-env:
-  variables:
-    S3_BUCKET: "dev-www.openlaw.nz"
 
 phases:
   install:
@@ -20,7 +17,7 @@ phases:
       - yarn build
   post_build:
     commands:
-      – aws s3 cp dist S3://${S3_BUCKET} --recursive
+      – aws s3 cp dist S3://dev-www.openlaw.nz
   files:
     - '**/*'
   base-directory: dist
