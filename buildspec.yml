@@ -1,5 +1,4 @@
 version: 0.2
-
 phases:
   install:
     runtime-versions:
@@ -17,9 +16,8 @@ phases:
       - yarn build
   post_build:
     commands:
-      - aws s3 sync dist s3://dev-www.openlaw.nz/ --delete
+#      - aws s3 sync dist s3://dev-www.openlaw.nz/ --delete
       - echo sync finished
-
   files:
     - '**/*'
   base-directory: dist
