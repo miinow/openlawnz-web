@@ -5,6 +5,7 @@ phases:
         nodejs: 10  
     commands:
       - echo Installing ...
+      - pip install --user awscli
       - yarn install
   pre_build:
     commands:
@@ -16,6 +17,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
+      - aws s3 cp dist s3://dev-www.openlaw.nz
 artifacts:
   files:
     - '**/*'
