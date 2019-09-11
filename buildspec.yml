@@ -17,7 +17,9 @@ phases:
       - yarn build
   post_build:
     commands:
-      – aws s3 cp dist "S3://dev-www.openlaw.nz"
+      - aws s3 sync dist s3://dev-www.openlaw.nz/ --delete
+      - echo sync finished
+
   files:
     - '**/*'
   base-directory: dist
