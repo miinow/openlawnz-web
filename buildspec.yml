@@ -17,7 +17,7 @@ phases:
       - yarn build
   post_build:
     commands:
-      – aws s3 cp dist S3://dev-www.openlaw.nz
+      – aws s3 cp dist "S3://dev-www.openlaw.nz"
   files:
     - '**/*'
   base-directory: dist
