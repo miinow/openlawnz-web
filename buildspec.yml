@@ -1,4 +1,8 @@
 version: 0.2
+env:
+  variables:
+    S3_BUCKET: "S3://dev-www.openlaw.nz"
+
 phases:
   install:
     runtime-versions:
