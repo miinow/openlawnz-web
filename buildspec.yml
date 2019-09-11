@@ -1,7 +1,7 @@
 version: 0.2
 env:
   variables:
-    S3_BUCKET: "S3://dev-www.openlaw.nz"
+    S3_BUCKET: "dev-www.openlaw.nz"
 
 phases:
   install:
@@ -20,8 +20,7 @@ phases:
       - yarn build
   post_build:
     commands:
-      - echo Build completed on `date`
-      – aws s3 sync dist $S3_BUCKET
+      – aws s3 cp dist S3://${S3_BUCKET} --recursive
   files:
     - '**/*'
   base-directory: dist
