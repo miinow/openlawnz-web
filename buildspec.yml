@@ -5,7 +5,6 @@ phases:
         nodejs: 10  
     commands:
       - echo Installing ...
-      - pip install --upgrade awscli
       - yarn install
   pre_build:
     commands:
@@ -14,7 +13,10 @@ phases:
     commands:
       - echo Build started on `date`
       - yarn build
-
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
   files:
     - '**/*'
   base-directory: dist
