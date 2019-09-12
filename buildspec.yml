@@ -5,7 +5,7 @@ phases:
         nodejs: 10  
     commands:
       - echo Installing ...
-      - pip install --user awscli
+#      - pip install --user awscli
       - yarn install
   pre_build:
     commands:
@@ -17,7 +17,6 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-#      - aws s3 sync dist s3://$S3_BUCKET --delete
 artifacts:
   files:
     - '**/*'
