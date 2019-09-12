@@ -17,7 +17,7 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - aws s3 cp dist s3://dev-www.openlaw.nz
+#      - aws s3 sync dist s3://$S3_BUCKET --delete
 artifacts:
   files:
     - '**/*'
