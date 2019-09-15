@@ -75,4 +75,31 @@
       }
     }
 
+
+    @media (max-width: 670px) {
+      .footer-container{
+        height: 470px;
+        .footer-items {
+          .law-foundation-nav-logo{
+            width: 100%;
+            padding: 37px;
+            display: block;
+            position: absolute;
+            top: 31%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+          .footer-contact-us{
+            width: 100%;
+            padding: 37px;
+            display: block;
+            position: absolute;
+            top: 69%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+    }
+
   
