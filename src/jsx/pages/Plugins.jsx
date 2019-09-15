@@ -58,6 +58,7 @@ class Plugin extends React.Component {
 							</p>
 							<p>If you build something with our platform, get in touch and we&apos;ll list it here.</p>
 						</div>
+						<Footer />
 					</div>
 					<Footer />
 				</div>
