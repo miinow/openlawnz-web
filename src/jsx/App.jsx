@@ -13,6 +13,7 @@ import Plugins from "./pages/Plugins.jsx";
 import Developers from "./pages/Developers.jsx";
 import About from "./pages/About.jsx";
 import NewsContext from "./NewsContext.jsx";
+import ModalWrapper from "./components/Modal.jsx";
 
 // login
 import { useAuth0 } from "../js/react-auth0-spa";
@@ -45,31 +46,33 @@ const App = (props) => {
 	    );
 	  }
 
-		return(
-			<Router>
-				<React.Fragment>
-					<Helmet>
-						<title>OpenLaw NZ</title>
-						<meta name="openlaw" content="open-source legal data platform, free to use" />
-					</Helmet>
-					<MainNavWithRouter />
-					<main className="content-wrapper">
-						<RouteWithTransition>
-							<NewsContext.Provider value={{ data: news, updateData: updateNewsData }}>
-								<Route exact path="/" component={Home} />
-								<Route exact path="/news" component={News} />
-								<Route exact path="/news/:id" component={SingleNews} />
-							</NewsContext.Provider>
-							<Route exact path="/search" component={Search} />
-							<Route exact path="/case/:id" component={SingleCase} />
-							<Route exact path="/developers" component={Developers} />
-							<Route exact path="/plugins" component={Plugins} />
-							<Route exact path="/about" component={About} />
-						</RouteWithTransition>
-					</main>
-				</React.Fragment>
-			</Router>
-		);
+	return (
+		<Router>
+			<React.Fragment>
+				<Helmet>
+					<title>OpenLaw NZ</title>
+					<meta name="openlaw" content="open-source legal data platform, free to use" />
+				</Helmet>
+				<MainNavWithRouter />
+				<main className="content-wrapper">
+					<RouteWithTransition>
+						<NewsContext.Provider value={{ data: news, updateData: updateNewsData }}>
+							<Route exact path="/" component={Home} />
+							<Route exact path="/news" component={News} />
+							<Route exact path="/news/:id" component={SingleNews} />
+						</NewsContext.Provider>
+						{/* <Route exact path="/profile/:uid" component={Profile}/> */}
+						<Route exact path="/search" component={Search} />
+						<Route exact path="/modal" component={ModalWrapper} />
+						<Route exact path="/case/:id" component={SingleCase} />
+						<Route exact path="/developers" component={Developers} />
+						<Route exact path="/plugins" component={Plugins} />
+						<Route exact path="/about" component={About} />
+					</RouteWithTransition>
+				</main>
+			</React.Fragment>
+		</Router>
+	);
 };
 
 export default hot(module)(App);
