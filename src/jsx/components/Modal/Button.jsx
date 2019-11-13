@@ -1,6 +1,6 @@
 import React from "react";
 import classnames from "classnames";
-import "../../scss/Button.scss";
+import "../../../scss/Button.scss";
 
 const Button = props => {
 	const isColored = props.colored ? "button-colored" : "button-white";
