@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { withRouter, BrowserRouter as Router, Route } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { hot } from "react-hot-loader";
@@ -13,7 +13,7 @@ import Plugins from "./pages/Plugins.jsx";
 import Developers from "./pages/Developers.jsx";
 import About from "./pages/About.jsx";
 import NewsContext from "./NewsContext.jsx";
-import ModalWrapper from "./components/Modal.jsx";
+import ModalWrapper from "./components/Modal/ModalWrapper";
 
 // login
 import { useAuth0 } from "../js/react-auth0-spa";
@@ -35,16 +35,14 @@ const RouteWithTransition = ({ children }) => (
 
 const MainNavWithRouter = withRouter(props => <MainNav {...props} />);
 
-const App = (props) => {
-		const { loading } = useAuth0();
-		const [news, setNews] = React.useState(null);
-		const updateNewsData = (news) => setNews(news);
+const App = props => {
+	const { loading } = useAuth0();
+	const [news, setNews] = React.useState(null);
+	const updateNewsData = news => setNews(news);
 
-		if (loading) {
-	    return (
-	      <div>Loading...</div>
-	    );
-	  }
+	if (loading) {
+		return <div>Loading...</div>;
+	}
 
 	return (
 		<Router>

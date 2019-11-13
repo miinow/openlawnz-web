@@ -1,29 +1,7 @@
 import React, { Component } from "react";
 import Button from "./Button";
-import "../../scss/Modal.scss";
-
-class ModalWrapper extends Component {
-	constructor(p) {
-		super(p);
-		this.handleVisible = this.handleVisible.bind(this);
-		this.state = {
-			visible: false
-		};
-	}
-
-	handleVisible() {
-		this.setState({ visible: true });
-	}
-
-	render() {
-		return (
-			<>
-				<button onClick={this.handleVisible}>asdfasdfasdfasdfasdfasdfasdf</button>
-				<Modal visible={this.state.visible} />
-			</>
-		);
-	}
-}
+import PropTypes from "prop-types";
+import "../../../scss/Modal.scss";
 
 class Modal extends Component {
 	constructor(props) {
@@ -38,12 +16,9 @@ class Modal extends Component {
 	}
 
 	componentDidMount() {
-		this.setState(
-			{
-				visible: this.props.visible
-			},
-			() => console.log("didmount" + this.state.visible)
-		);
+		this.setState({
+			visible: this.props.visible
+		});
 	}
 
 	// eslint-disable-next-line react/no-deprecated
@@ -61,9 +36,9 @@ class Modal extends Component {
 
 	handleCancel() {
 		console.log("cancel");
-		const { onClose } = this.props;
+		const { onCancel } = this.props;
 
-		onClose && onClose();
+		onCancel && onCancel();
 		this.setState({ visible: false });
 	}
 
@@ -75,6 +50,12 @@ class Modal extends Component {
 	render() {
 		const { title, children } = this.props;
 		const { visible } = this.state;
+
+		if (visible) {
+			document.getElementsByTagName("body")[0].classList.add("prevent-scroll");
+		} else {
+			document.getElementsByTagName("body")[0].classList.remove("prevent-scroll");
+		}
 
 		return visible ? (
 			<div className="modal-wrapper">
@@ -100,10 +81,15 @@ class Modal extends Component {
 				</div>
 				<div onClick={this.clickMask} className="modal-mask" />
 			</div>
-		) : (
-			""
-		);
+		) : null;
 	}
 }
 
-export default ModalWrapper;
+export default Modal;
+
+Modal.propTypes = {
+	onConfirm: PropTypes.func,
+	onCancel: PropTypes.func,
+	title: PropTypes.string,
+	visible: PropTypes.bool
+};

@@ -55,6 +55,10 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: pink;
   z-index: 9998;
+}
+
+.prevent-scroll{
+  height: 100%;
+  overflow: hidden;
 }
