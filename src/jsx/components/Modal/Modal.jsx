@@ -48,7 +48,7 @@ class Modal extends Component {
 	}
 
 	render() {
-		const { title, children } = this.props;
+		const { children } = this.props;
 		const { visible } = this.state;
 
 		if (visible) {
@@ -60,9 +60,6 @@ class Modal extends Component {
 		return visible ? (
 			<div className="modal-wrapper">
 				<div className="modal">
-					<div className="modal-title">
-						{title || "titletitltitletitleetitletitletitletitletitletitletitletitle"}
-					</div>
 					{children}
 					<div className="modal-button">
 						<Button
