@@ -1,5 +1,7 @@
 import React from "react";
 import classnames from "classnames";
+import ButtonGroup from "./ButtonGroup";
+
 import "../../../scss/Button.scss";
 
 const Button = props => {
@@ -11,5 +13,7 @@ const Button = props => {
 		</button>
 	);
 };
+
+Button.Group = ButtonGroup;
 
 export default Button;

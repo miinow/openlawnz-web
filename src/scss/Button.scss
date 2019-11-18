@@ -18,3 +18,31 @@
   background: #fff;
   border: none;
 }
+
+.button-group{
+  width: 310px;
+  height: 45px;
+  border: 1px solid #cf9768;
+  border-radius: 4px;
+  top: 124px;
+  margin: 0 90px;
+  box-sizing: border-box;
+
+  div{
+    display: inline-block;
+    width: 50%;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    color: #cf9768;
+    font-weight: 800;
+    cursor: pointer;
+
+  }
+
+  .button-selected{
+    color: #fff;
+    background-color: #cf9768;
+  }
+
+}
