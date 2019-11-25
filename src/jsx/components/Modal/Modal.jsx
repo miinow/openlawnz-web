@@ -9,21 +9,6 @@ class Modal extends Component {
 		this.clickMask = this.clickMask.bind(this);
 		this.handleConfirm = this.handleConfirm.bind(this);
 		this.handleCancel = this.handleCancel.bind(this);
-
-		this.state = {
-			visible: false
-		};
-	}
-
-	componentDidMount() {
-		this.setState({
-			visible: this.props.visible
-		});
-	}
-
-	// eslint-disable-next-line react/no-deprecated
-	componentWillReceiveProps(nextProps, nextContext) {
-		this.setState({ visible: nextProps.visible });
 	}
 
 	handleConfirm() {
@@ -31,7 +16,6 @@ class Modal extends Component {
 		const { onConfirm } = this.props;
 
 		onConfirm && onConfirm();
-		this.setState({ visible: false });
 	}
 
 	handleCancel() {
@@ -39,19 +23,18 @@ class Modal extends Component {
 		const { onCancel } = this.props;
 
 		onCancel && onCancel();
-		this.setState({ visible: false });
 	}
 
 	clickMask(e) {
+		const { clickMask, reset } = this.props;
 		e.preventDefault();
-		this.setState({ visible: false });
-		this.props.clickMask();
-		this.props.clearChecked();
+		clickMask();
+		reset();
 	}
 
 	render() {
 		const { children } = this.props;
-		const { visible } = this.state;
+		const { visible } = this.props;
 
 		if (visible) {
 			document.getElementsByTagName("body")[0].classList.add("prevent-scroll");
@@ -90,5 +73,6 @@ Modal.propTypes = {
 	onConfirm: PropTypes.func,
 	onCancel: PropTypes.func,
 	title: PropTypes.string,
-	visible: PropTypes.bool
+	visible: PropTypes.bool,
+	reset: PropTypes.func
 };
