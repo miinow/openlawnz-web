@@ -13,7 +13,7 @@ $openLawDarkGreen: #3f7578;
   background: $pureWhite;
   box-shadow: 0 4px 13px rgba(133, 133, 133, 0.25);
   border-radius: 5px;
-  z-index: 9999;
+  z-index: 8100;
 
   .modal-title{
     width: 100%;
@@ -27,7 +27,6 @@ $openLawDarkGreen: #3f7578;
     text-decoration-line: underline;
     color: $openLawArapawa
   }
-
 
   .modal-button{
 
@@ -52,6 +51,7 @@ $openLawDarkGreen: #3f7578;
     font-weight: 800;
     color: $openLawDarkGreen;
     font-size: 14px;
+    line-height: 24px;
     margin: 30px 0 0 90px;
   }
 
@@ -61,7 +61,7 @@ $openLawDarkGreen: #3f7578;
     background-color: $ModalBackgroundWhite;
     border-radius: 5px;
     box-shadow: 0 4px 2px rgba(0,0,0,0.25);
-    margin-left: 90px;
+    margin-left: 88px;
   }
 
   .modal-input{
@@ -75,7 +75,7 @@ $openLawDarkGreen: #3f7578;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 9998;
+  z-index: 8099;
 }
 
 .prevent-scroll{

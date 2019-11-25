@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Modal from "./Modal";
 import Button from "./Button";
 import Input from "./Input";
+import Select from "./Select";
+
+const options = ["1111", "2222", "3333", "4444"];
 
 class ModalWrapper extends Component {
 	constructor(p) {
@@ -12,13 +15,14 @@ class ModalWrapper extends Component {
 		this.clickMask = this.clickMask.bind(this);
 		this.onConfirm = this.onConfirm.bind(this);
 		this.onCancel = this.onCancel.bind(this);
+		this.onSelect = this.onSelect.bind(this);
 
 		this.state = {
 			visible: false,
 			defaultVisible: false,
 			buttonID: 0,
 			buttonCollected: "existing",
-			options: ["1111", "2222", "3333", "4444"]
+			selectValue: ""
 		};
 	}
 
@@ -61,6 +65,12 @@ class ModalWrapper extends Component {
 		this.reset();
 	}
 
+	onSelect(v) {
+		this.setState({
+			selectValue: v
+		});
+	}
+
 	render() {
 		return (
 			<>
@@ -97,15 +107,13 @@ class ModalWrapper extends Component {
 					{this.state.buttonCollected === "existing" ? (
 						<>
 							<p className="modal-text">Select Folder:</p>
-							<select className="modal-select" name="select-folder" id="">
-								{this.state.options.map(item => {
-									return (
-										<option key={item} value={item}>
-											{item}
-										</option>
-									);
-								})}
-							</select>
+							<Select
+								className="modal-select"
+								onSelect={this.onSelect}
+								size="big"
+								options={options}
+								placeholder={"placehosererer"}
+							/>
 						</>
 					) : (
 						<>
