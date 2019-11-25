@@ -1,20 +1,24 @@
 import React, { Component } from "react";
 import Modal from "./Modal";
 import Button from "./Button";
+import Input from "./Input";
 
 class ModalWrapper extends Component {
 	constructor(p) {
 		super(p);
 		this.handleVisible = this.handleVisible.bind(this);
 		this.clickButton = this.clickButton.bind(this);
-		this.clearChecked = this.clearChecked.bind(this);
+		this.reset = this.reset.bind(this);
 		this.clickMask = this.clickMask.bind(this);
+		this.onConfirm = this.onConfirm.bind(this);
+		this.onCancel = this.onCancel.bind(this);
 
 		this.state = {
 			visible: false,
 			defaultVisible: false,
 			buttonID: 0,
-			buttonCollected: "existing"
+			buttonCollected: "existing",
+			options: ["1111", "2222", "3333", "4444"]
 		};
 	}
 
@@ -37,12 +41,24 @@ class ModalWrapper extends Component {
 		this.setState({ buttonCollected: value });
 	}
 
-	clearChecked() {
+	reset() {
 		this.setState({ buttonCollected: "existing" });
+		this.setState({ visible: false });
 	}
 
 	clickMask() {
-		this.setState({ visible: false });
+		this.reset();
+	}
+
+	onConfirm() {
+		console.log("wrapperModal click save");
+		this.reset();
+	}
+
+	onCancel() {
+		console.log("wrapperModal click cancel");
+
+		this.reset();
 	}
 
 	render() {
@@ -58,8 +74,10 @@ class ModalWrapper extends Component {
 					asdfasdfasdfasdfasdfasdfasdf
 				</button>
 				<Modal
+					onConfirm={this.onConfirm}
+					onCancel={this.onCancel}
 					clickMask={this.clickMask}
-					clearChecked={this.clearChecked}
+					reset={this.reset}
 					defaultVisible={this.state.defaultVisible}
 					visible={this.state.visible}
 					id={this.state.buttonID}
@@ -76,13 +94,25 @@ class ModalWrapper extends Component {
 						clickLast={this.clickButton}
 						collected={this.state.buttonCollected === "existing" ? "first" : "last"}
 					/>
-					<p className="modal-text">Select Folder:</p>
-					<select className="modal-select" name="select-folder" id="">
-						<option value="1">123123</option>
-						<option value="2">2222</option>
-						<option value="3">3333</option>
-						<option value="4">4444</option>
-					</select>
+					{this.state.buttonCollected === "existing" ? (
+						<>
+							<p className="modal-text">Select Folder:</p>
+							<select className="modal-select" name="select-folder" id="">
+								{this.state.options.map(item => {
+									return (
+										<option key={item} value={item}>
+											{item}
+										</option>
+									);
+								})}
+							</select>
+						</>
+					) : (
+						<>
+							<p className="modal-text">Enter new folder name: </p>
+							<Input onEnter={this.onConfirm} className="modal-input" placeholder={"New folder name"} />
+						</>
+					)}
 				</Modal>
 			</>
 		);
