@@ -33,8 +33,7 @@ class Modal extends Component {
 	}
 
 	render() {
-		const { children } = this.props;
-		const { visible } = this.props;
+		const { children, visible } = this.props;
 
 		if (visible) {
 			document.getElementsByTagName("body")[0].classList.add("prevent-scroll");
