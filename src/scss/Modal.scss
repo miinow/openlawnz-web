@@ -1,4 +1,7 @@
 $ModalBackgroundWhite: #f6f6f6;
+$pureWhite: #fff;
+$openLawArapawa: #225160;
+$openLawDarkGreen: #3f7578;
 
 .modal {
   position: fixed;
@@ -7,7 +10,7 @@ $ModalBackgroundWhite: #f6f6f6;
   right: 0;
   width: 484px;
   height: 417px;
-  background: $openWhite;
+  background: $pureWhite;
   box-shadow: 0 4px 13px rgba(133, 133, 133, 0.25);
   border-radius: 5px;
   z-index: 9999;

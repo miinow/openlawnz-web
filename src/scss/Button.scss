@@ -1,4 +1,7 @@
 $buttonTextColor: #a8a8a8;
+$pureWhite: #fff;
+$openLawLightBrown: #cf9768;
+
 .button {
   border-radius: 5px;
   font-style: normal;
@@ -9,13 +12,13 @@ $buttonTextColor: #a8a8a8;
   cursor: pointer;
 }
 .button-colored {
-  color: $openWhite;
+  color: $pureWhite;
   background: $openLawLightBrown;
 }
 
 .button-white {
   color: $buttonTextColor;
-  background: $openWhite;
+  background: $pureWhite;
   border: none;
 }
 
@@ -41,7 +44,7 @@ $buttonTextColor: #a8a8a8;
   }
 
   .button-selected{
-    color: $openWhite;
+    color: $pureWhite;
     background-color: $openLawLightBrown;
   }
 
