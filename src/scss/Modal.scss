@@ -1,3 +1,5 @@
+$ModalBackgroundWhite: #f6f6f6;
+
 .modal {
   position: fixed;
   margin: 0 auto;
@@ -5,7 +7,7 @@
   right: 0;
   width: 484px;
   height: 417px;
-  background: #FFFFFF;
+  background: $openWhite;
   box-shadow: 0 4px 13px rgba(133, 133, 133, 0.25);
   border-radius: 5px;
   z-index: 9999;
@@ -20,7 +22,7 @@
     line-height: 22px;
     text-align: center;
     text-decoration-line: underline;
-    color: #225160
+    color: $openLawArapawa
   }
 
 
@@ -45,7 +47,7 @@
 
   .modal-text{
     font-weight: 800;
-    color: #3f7578;
+    color: $openLawDarkGreen;
     font-size: 14px;
     margin: 30px 0 0 90px;
   }
@@ -53,7 +55,7 @@
   .modal-select{
     width: 306px;
     height: 40px;
-    background-color: #F6F6F6;
+    background-color: $ModalBackgroundWhite;
     border-radius: 5px;
     box-shadow: 0 4px 2px rgba(0,0,0,0.25);
     margin-left: 90px;

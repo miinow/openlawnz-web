@@ -1,4 +1,4 @@
-
+$buttonTextColor: #a8a8a8;
 .button {
   border-radius: 5px;
   font-style: normal;
@@ -9,20 +9,20 @@
   cursor: pointer;
 }
 .button-colored {
-  color: #fff;
-  background: #CF9768;
+  color: $openWhite;
+  background: $openLawLightBrown;
 }
 
 .button-white {
-  color: #a8a8a8;
-  background: #fff;
+  color: $buttonTextColor;
+  background: $openWhite;
   border: none;
 }
 
 .button-group{
   width: 306px;
   height: 45px;
-  border: 1px solid #cf9768;
+  border: 1px solid $openLawLightBrown;
   border-radius: 4px;
   top: 124px;
   margin: 0 90px;
@@ -34,15 +34,15 @@
     height: 43px;
     line-height: 43px;
     text-align: center;
-    color: #cf9768;
+    color: $openLawLightBrown;
     font-weight: 800;
     cursor: pointer;
 
   }
 
   .button-selected{
-    color: #fff;
-    background-color: #cf9768;
+    color: $openWhite;
+    background-color: $openLawLightBrown;
   }
 
 }
