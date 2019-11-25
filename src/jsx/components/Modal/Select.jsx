@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import classnames from "classnames";
+import PropTypes from "prop-types";
+
 import "../../../scss/Select.scss";
 
 class Select extends Component {
@@ -48,7 +50,7 @@ class Select extends Component {
 	}
 
 	render() {
-		const { options, size, className } = this.props;
+		const { options, size = "big", className } = this.props;
 		return (
 			<div>
 				<div onClick={this.clickSelect} className={classnames("select", `select-${size}`, className)}>
@@ -77,3 +79,10 @@ class Select extends Component {
 }
 
 export default Select;
+
+Select.propTypes = {
+	options: PropTypes.array.isRequired,
+	size: PropTypes.string,
+	className: PropTypes.string,
+	placeholder: PropTypes.string
+};
