@@ -45,6 +45,8 @@ class Modal extends Component {
 	clickMask(e) {
 		e.preventDefault();
 		this.setState({ visible: false });
+		this.props.clickMask();
+		this.props.clearChecked();
 	}
 
 	render() {

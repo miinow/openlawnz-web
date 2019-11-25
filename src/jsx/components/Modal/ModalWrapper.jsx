@@ -7,6 +7,8 @@ class ModalWrapper extends Component {
 		super(p);
 		this.handleVisible = this.handleVisible.bind(this);
 		this.clickButton = this.clickButton.bind(this);
+		this.clearChecked = this.clearChecked.bind(this);
+		this.clickMask = this.clickMask.bind(this);
 
 		this.state = {
 			visible: false,
@@ -35,6 +37,14 @@ class ModalWrapper extends Component {
 		this.setState({ buttonCollected: value });
 	}
 
+	clearChecked() {
+		this.setState({ buttonCollected: "existing" });
+	}
+
+	clickMask() {
+		this.setState({ visible: false });
+	}
+
 	render() {
 		return (
 			<>
@@ -48,6 +58,8 @@ class ModalWrapper extends Component {
 					asdfasdfasdfasdfasdfasdfasdf
 				</button>
 				<Modal
+					clickMask={this.clickMask}
+					clearChecked={this.clearChecked}
 					defaultVisible={this.state.defaultVisible}
 					visible={this.state.visible}
 					id={this.state.buttonID}
