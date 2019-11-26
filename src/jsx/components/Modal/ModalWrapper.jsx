@@ -74,15 +74,13 @@ class ModalWrapper extends Component {
 	render() {
 		return (
 			<>
-				<button onClick={this.handleVisible} id={1}>
-					asdfasdfasdfasdfasdfasdfasdf
-				</button>
-				<button onClick={this.handleVisible} id={2}>
-					asdfasdfasdfasdfasdfasdfasdf
-				</button>
-				<button onClick={this.handleVisible} id={3}>
-					asdfasdfasdfasdfasdfasdfasdf
-				</button>
+				<div className="case-save" onClick={this.handleVisible}>
+					<svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fillRule="evenodd" clipRule="evenodd" d="M0 8.67071V2.15809C0 0.964263 0.896666 0 2.00276 0H13L15 4.33535H26.9941C28.1029 4.33535 29 5.30347 29 6.49771V8.67071H0Z" fill="#3F7578" fillOpacity="0.45"/>
+						<path d="M29 9.75455V21.6821C29 22.877 28.1076 23.8444 27.0067 23.8444H1.99329C0.899713 23.8444 0 22.8782 0 21.6864V9.75455H29Z" fill="#3F7578" fillOpacity="0.45"/>
+						<path d="M9.7356 15.743H14.0856M18.4356 15.743H14.0856M14.0856 15.743V12.4287V19.4716" stroke="white" strokeWidth="1.5"/>
+					</svg>
+				</div>
 				<Modal
 					onConfirm={this.onConfirm}
 					onCancel={this.onCancel}
